@@ -1,0 +1,32 @@
+server:
+    port: 8082
+    context-path: /boot
+
+mybatis:
+    mapperLocations: classpath:mapper/*.xml   #指定实体类的映射文件
+    typeAliasesPackage: com.example.demo.entity  #指定实体类的位置，这样在xml中就不用写全路径
+
+#借助Durid连接池
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        druid:
+            url: jdbc:mysql://localhost:3306/norland_project?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+            username: root
+            password: 123
+            initial-size: 1
+            min-idle: 1
+            max-active: 20
+            test-on-borrow: true
+
+#直连mysql
+#jdbc:
+#    type: mysql
+#
+#spring:
+#    datasource:
+#        url: jdbc:mysql://localhost:3306/norland_project?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+#        username: root
+#        password: 123
+#        driver-class-name: com.mysql.jdbc.Driver
